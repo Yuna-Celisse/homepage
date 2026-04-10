@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header reveal" data-delay="0">
+    <a class="brand" href="#top">YC</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal" data-delay="100">
+      <p class="eyebrow">Software Engineer / Creator</p>
+      <h1>
+        Build things with
+        <span class="accent">clarity</span>
+        and character.
+      </h1>
+      <p class="lead">
+        I design and build web experiences that are fast, useful, and memorable.
+        This page is a compact snapshot of my work style, projects, and ways to connect.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact">Say Hello</a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="reveal" data-delay="150">
+      <h2>About</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Problem Solving</h3>
+          <p>I focus on practical solutions, clean architecture, and long-term maintainability.</p>
+        </article>
+        <article class="card">
+          <h3>Frontend Craft</h3>
+          <p>From information hierarchy to motion details, I care about polish and clarity.</p>
+        </article>
+        <article class="card">
+          <h3>Collaboration</h3>
+          <p>I communicate early, iterate quickly, and keep teams aligned with clear documentation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal" data-delay="200">
+      <div class="section-head">
+        <h2>Selected Projects</h2>
+        <a href="#" class="text-link">See all</a>
+      </div>
+      <div class="grid two">
+        <article class="project-card">
+          <p class="tag">Web App</p>
+          <h3>Project Atlas</h3>
+          <p>Task planning tool with timeline view, keyboard shortcuts, and collaboration notes.</p>
+        </article>
+        <article class="project-card">
+          <p class="tag">Design System</p>
+          <h3>Project Echo</h3>
+          <p>Reusable component library with theming tokens and accessible interaction patterns.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact reveal" data-delay="250">
+      <h2>Contact</h2>
+      <p>If you are building something meaningful, I would love to hear about it.</p>
+      <div class="contact-links">
+        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer reveal" data-delay="300">
+    <p>© <span id="year"></span> YC. Built with intention.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
