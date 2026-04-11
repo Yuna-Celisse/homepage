@@ -11,8 +11,10 @@ export default defineConfig({
     logo: '/logo.svg',
     nav: [
       { text: '首页', link: '/' },
-      { text: '博客', link: '/blog/' },
-      { text: '项目', link: '/projects/' },
+      { text: 'About', link: '/#about' },
+      { text: 'Projects', link: '/#projects' },
+      { text: 'Contact', link: '/#contact' },
+      { text: 'Blog', link: '/blog/' },
       { text: 'GitHub', link: 'https://github.com/Yuna-Celisse' }
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/Yuna-Celisse' }],
