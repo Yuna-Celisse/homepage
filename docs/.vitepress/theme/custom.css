@@ -21,6 +21,10 @@
   max-width: 1080px;
 }
 
+.vp-doc > div {
+  max-width: 100%;
+}
+
 .vp-doc div[class*='language-'] {
   border-radius: 14px;
 }

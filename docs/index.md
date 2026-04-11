@@ -1,5 +1,7 @@
 ---
 title: 首页
+aside: false
+outline: false
 ---
 
 <div class="home-shell">
