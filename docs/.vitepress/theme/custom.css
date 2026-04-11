@@ -1,0 +1,54 @@
+:root {
+  --vp-c-brand-1: #2b78c5;
+  --vp-c-brand-2: #2062aa;
+  --vp-c-brand-3: #1a4f89;
+  --vp-c-bg: #edf6ff;
+  --vp-c-bg-soft: #f5faff;
+  --vp-c-text-1: #0f2133;
+  --vp-c-text-2: #425a70;
+}
+
+.VPHome {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(43, 120, 197, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 8%, rgba(22, 122, 131, 0.16), transparent 35%),
+    linear-gradient(145deg, #eef7ff 0%, #eaf4ff 48%, #f2f9ff 100%);
+}
+
+.VPHero .name {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.VPFeature {
+  border: 1px solid rgba(22, 71, 128, 0.15);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.blog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.blog-list-item {
+  border: 1px solid rgba(22, 71, 128, 0.18);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.post-title {
+  font-weight: 600;
+}
+
+.post-meta {
+  margin-top: 0.3rem;
+  color: var(--vp-c-text-2);
+  font-size: 0.88rem;
+  display: flex;
+  gap: 0.6rem;
+}
