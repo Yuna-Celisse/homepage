@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'YunaCelisse',
   description: 'Personal notes, projects and experiments',
-  base: '/homepage/',
+  base: '/',
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
