@@ -64,12 +64,10 @@ outline: false
   </section>
 
   <section id="contact" class="section-block contact-card">
-    <h2>Contact</h2>
-    <p>If you are building something meaningful, I would love to hear about it.</p>
+    <h2>Get in Touch</h2>
+    <p>If you are building something meaningful, contact me by email.</p>
     <div class="contact-links">
       <a href="mailto:29951517@qq.com">29951517@qq.com</a>
-      <a href="https://github.com/Yuna-Celisse" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="/blog/">Blog</a>
     </div>
   </section>
 </div>

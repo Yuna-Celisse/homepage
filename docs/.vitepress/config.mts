@@ -14,8 +14,7 @@ export default defineConfig({
       { text: 'About', link: '/#about' },
       { text: 'Projects', link: '/#projects' },
       { text: 'Contact', link: '/#contact' },
-      { text: 'Blog', link: '/blog/' },
-      { text: 'GitHub', link: 'https://github.com/Yuna-Celisse' }
+      { text: 'Blog', link: '/blog/' }
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/Yuna-Celisse' }],
     footer: {

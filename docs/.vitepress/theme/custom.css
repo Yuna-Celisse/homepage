@@ -8,6 +8,21 @@
   --vp-c-text-2: #425a70;
   --line: #bfd3e6;
   --muted: #4a6278;
+  --surface: rgba(247, 252, 255, 0.88);
+  --surface-hero: rgba(247, 252, 255, 0.85);
+  --link-accent: #167a83;
+}
+
+.dark {
+  --vp-c-bg: #0f1624;
+  --vp-c-bg-soft: #131d2d;
+  --vp-c-text-1: #dbe7f3;
+  --vp-c-text-2: #9eb5cc;
+  --line: #30455d;
+  --muted: #8da6bf;
+  --surface: rgba(20, 29, 44, 0.88);
+  --surface-hero: rgba(20, 29, 44, 0.86);
+  --link-accent: #5fc2cb;
 }
 
 .VPContent {
@@ -15,6 +30,13 @@
     radial-gradient(circle at 10% 12%, rgba(43, 120, 197, 0.18), transparent 32%),
     radial-gradient(circle at 85% 8%, rgba(22, 122, 131, 0.16), transparent 35%),
     linear-gradient(145deg, #eef7ff 0%, #eaf4ff 48%, #f2f9ff 100%);
+}
+
+.dark .VPContent {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(43, 120, 197, 0.2), transparent 34%),
+    radial-gradient(circle at 85% 8%, rgba(22, 122, 131, 0.2), transparent 36%),
+    linear-gradient(145deg, #0f1624 0%, #111b2b 48%, #152131 100%);
 }
 
 .vp-doc {
@@ -38,7 +60,7 @@
   padding: clamp(1.2rem, 2vw, 2rem);
   border: 1px solid var(--line);
   border-radius: 24px;
-  background: rgba(247, 252, 255, 0.85);
+  background: var(--surface-hero);
   box-shadow: 0 16px 50px rgba(15, 33, 51, 0.12);
   position: relative;
   overflow: hidden;
@@ -94,8 +116,8 @@
 
 .btn.ghost {
   color: var(--vp-c-text-1);
-  background: #f2f8ff;
-  border-color: #c4d9ee;
+  background: color-mix(in srgb, var(--surface) 88%, #ffffff 12%);
+  border-color: var(--line);
 }
 
 .hero-orbit {
@@ -138,7 +160,7 @@
 .contact-card {
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(247, 252, 255, 0.88);
+  background: var(--surface);
   padding: 1rem;
 }
 
@@ -151,7 +173,7 @@
 }
 
 .text-link {
-  color: #167a83;
+  color: var(--link-accent);
   text-underline-offset: 3px;
 }
 
@@ -162,7 +184,7 @@
 }
 
 .contact-links a {
-  color: #167a83;
+  color: var(--link-accent);
   font-weight: 600;
 }
 
@@ -196,7 +218,7 @@
   border: 1px solid rgba(22, 71, 128, 0.18);
   border-radius: 12px;
   padding: 0.75rem 0.9rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: color-mix(in srgb, var(--surface) 90%, #ffffff 10%);
 }
 
 .post-title {
