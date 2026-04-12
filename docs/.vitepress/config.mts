@@ -3,7 +3,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'YunaCelisse',
   description: 'Personal notes, projects and experiments',
-  base: '/',
+  // Use repository subpath on production build for GitHub Pages project site.
+  base: process.env.NODE_ENV === 'production' ? '/homepage/' : '/',
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,

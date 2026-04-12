@@ -18,7 +18,7 @@ outline: false
     </p>
     <div class="hero-actions">
       <a class="btn primary" href="#projects">See My Projects</a>
-      <a class="btn ghost" href="/blog/">Read My Blog</a>
+      <a class="btn ghost" href="./blog/">Read My Blog</a>
       <a class="btn ghost" href="#contact">Contact Me</a>
     </div>
     <div class="hero-orbit" aria-hidden="true"></div>
