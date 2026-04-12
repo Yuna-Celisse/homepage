@@ -21,6 +21,10 @@ dist/
 build/
 coverage/
 
+# VitePress local output
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
 # Editor
 .vscode/
 .idea/
