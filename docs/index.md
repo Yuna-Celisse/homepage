@@ -64,7 +64,7 @@ outline: false
   </section>
 
   <section id="contact" class="section-block contact-card">
-    <h2>Get in Touch</h2>
+    <p class="tag">Get in Touch</p>
     <p>If you are building something meaningful, contact me by email.</p>
     <div class="contact-links">
       <a href="mailto:29951517@qq.com">29951517@qq.com</a>
