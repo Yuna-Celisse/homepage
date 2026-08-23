@@ -2,6 +2,8 @@
 title: Homepage 冷色调视觉调整
 date: 2026-04-10
 category: 技术
+description: 从配色、背景层次和阅读对比度出发，记录个人主页冷色调视觉调整的设计思路。
+readingTime: 3
 ---
 
 记录一下主页视觉调整思路。

@@ -2,6 +2,8 @@
 title: 架构迁移：从静态页面到 VitePress
 date: 2026-04-11
 category: 开发日志
+description: 记录个人主页从静态页面迁移到 VitePress 的原因、结构变化与部署方式。
+readingTime: 4
 ---
 
 这次把原有静态主页迁移到了 VitePress。
