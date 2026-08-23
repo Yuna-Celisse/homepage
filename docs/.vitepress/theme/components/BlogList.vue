@@ -5,6 +5,8 @@ type Frontmatter = {
   title?: string
   date?: string
   category?: string
+  description?: string
+  readingTime?: number
 }
 
 type PageData = {
@@ -19,6 +21,8 @@ type PostItem = {
   title: string
   date: string
   category: string
+  summary: string
+  readingTime: number
   link: string
 }
 
@@ -44,6 +48,8 @@ const posts: PostItem[] = Object.entries(modules)
       title: frontmatter.title || slug,
       date: formatDate(frontmatter.date),
       category: frontmatter.category || 'Uncategorized',
+      summary: frontmatter.description || '记录开发、设计与实践过程中的思考与收获。',
+      readingTime: frontmatter.readingTime || 4,
       link: withBase(`/blog/posts/${slug}`)
     }
   })
@@ -51,14 +57,33 @@ const posts: PostItem[] = Object.entries(modules)
 </script>
 
 <template>
-  <ul v-if="posts.length" class="blog-list">
-    <li v-for="post in posts" :key="post.link" class="blog-list-item">
-      <a :href="post.link" class="post-title">{{ post.title }}</a>
-      <div class="post-meta">
-        <span>{{ post.date }}</span>
-        <span>{{ post.category }}</span>
-      </div>
-    </li>
-  </ul>
-  <p v-else>No posts yet.</p>
+  <section class="blog-archive" aria-labelledby="blog-title">
+    <header class="blog-header">
+      <p class="blog-kicker">Notes &amp; essays</p>
+      <h1 id="blog-title">Blog</h1>
+      <p>记录开发、设计与学习过程中的思考。</p>
+    </header>
+
+    <div v-if="posts.length" class="blog-list">
+      <article v-for="post in posts" :key="post.link" class="blog-list-item">
+        <time class="post-date" :datetime="post.date">
+          <span class="post-year">{{ post.date.slice(0, 4) }}</span>
+          <span class="post-day">{{ post.date.slice(5) }}</span>
+        </time>
+
+        <div class="blog-post-body">
+          <a :href="post.link" class="blog-post-title">
+            <span>{{ post.title }}</span>
+            <span class="post-arrow" aria-hidden="true">→</span>
+          </a>
+          <p class="post-summary">{{ post.summary }}</p>
+          <div class="post-meta">
+            <span class="post-category">{{ post.category }}</span>
+            <span class="reading-time">约 {{ post.readingTime }} 分钟阅读</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p v-else class="blog-empty">暂无文章。</p>
+  </section>
 </template>
