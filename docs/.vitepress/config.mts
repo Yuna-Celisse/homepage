@@ -9,6 +9,9 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   themeConfig: {
+    outline: {
+      level: [2, 4]
+    },
     logo: '/logo.svg',
     nav: [
       { text: '首页', link: '/' },
