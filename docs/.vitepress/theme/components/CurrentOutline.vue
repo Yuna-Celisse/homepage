@@ -21,7 +21,18 @@ const sections = ref<OutlineSection[]>([])
 const activeId = ref('')
 const activeSectionId = ref('')
 const activeSubsectionId = ref('')
+// Explicit choices take precedence over scroll-driven expansion until navigation.
+const expandedOverrides = ref(new Map<string, boolean>())
 let scrollFrame = 0
+
+function isExpanded(id: string): boolean {
+  return expandedOverrides.value.get(id)
+    ?? (activeSectionId.value === id || activeSubsectionId.value === id)
+}
+
+function toggleExpanded(id: string): void {
+  expandedOverrides.value.set(id, !isExpanded(id))
+}
 
 function headingTitle(element: HTMLElement): string {
   const copy = element.cloneNode(true) as HTMLElement
@@ -115,7 +126,10 @@ onMounted(() => {
   window.addEventListener('resize', scheduleActiveUpdate, { passive: true })
 })
 
-watch(() => route.path, refreshOutline)
+watch(() => route.path, () => {
+  expandedOverrides.value.clear()
+  refreshOutline()
+})
 onContentUpdated(refreshOutline)
 
 onUnmounted(() => {
@@ -130,23 +144,45 @@ onUnmounted(() => {
     <div class="current-outline-title">On this page</div>
     <ol class="current-outline-list">
       <li v-for="section in sections" :key="section.id" class="outline-section">
-        <a
-          class="current-outline-link level-two"
-          :class="{ active: activeId === section.id }"
-          :href="`#${encodeURIComponent(section.id)}`"
-        >{{ section.title }}</a>
+        <div class="outline-row">
+          <a
+            class="current-outline-link level-two"
+            :class="{ active: activeId === section.id }"
+            :href="`#${encodeURIComponent(section.id)}`"
+          >{{ section.title }}</a>
+          <button
+            v-if="section.children.length"
+            type="button"
+            class="outline-toggle"
+            :aria-expanded="isExpanded(section.id)"
+            :aria-controls="`outline-children-${section.id}`"
+            :aria-label="`${isExpanded(section.id) ? '折叠' : '展开'}${section.title}的子标题`"
+            @click="toggleExpanded(section.id)"
+          ><span aria-hidden="true">›</span></button>
+        </div>
 
         <Transition name="outline-children">
-          <ol v-if="section.children.length && activeSectionId === section.id" class="outline-children">
+          <ol v-if="section.children.length" v-show="isExpanded(section.id)" :id="`outline-children-${section.id}`" class="outline-children">
             <li v-for="child in section.children" :key="child.id">
-              <a
-                class="current-outline-link level-three"
-                :class="{ active: activeId === child.id }"
-                :href="`#${encodeURIComponent(child.id)}`"
-              >{{ child.title }}</a>
+              <div class="outline-row">
+                <a
+                  class="current-outline-link level-three"
+                  :class="{ active: activeId === child.id }"
+                  :href="`#${encodeURIComponent(child.id)}`"
+                >{{ child.title }}</a>
+                <button
+                  v-if="child.children.length"
+                  type="button"
+                  class="outline-toggle"
+                  :aria-expanded="isExpanded(child.id)"
+                  :aria-controls="`outline-children-${child.id}`"
+                  :aria-label="`${isExpanded(child.id) ? '折叠' : '展开'}${child.title}的子标题`"
+                  @click="toggleExpanded(child.id)"
+                ><span aria-hidden="true">›</span></button>
+              </div>
 
               <Transition name="outline-children">
-                <ol v-if="child.children.length && activeSubsectionId === child.id" class="outline-children level-four-list">
+                <ol v-if="child.children.length" v-show="isExpanded(child.id)" :id="`outline-children-${child.id}`" class="outline-children level-four-list">
                   <li v-for="grandchild in child.children" :key="grandchild.id">
                     <a
                       class="current-outline-link level-four"
@@ -187,6 +223,47 @@ onUnmounted(() => {
 
 .outline-section {
   position: relative;
+}
+
+.outline-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.outline-row > .current-outline-link {
+  flex: 1;
+  min-width: 0;
+}
+
+.outline-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: 4px;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+}
+
+.outline-toggle:hover {
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-brand-1);
+}
+
+.outline-toggle:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
+.outline-toggle span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.outline-toggle[aria-expanded='true'] span {
+  transform: rotate(90deg);
 }
 
 .current-outline-link {
